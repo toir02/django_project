@@ -6,4 +6,4 @@ def homepage(request):
 
 
 def contact_information(request):
-    return render(request, 'catalog/contact_information')
+    return render(request, 'catalog/contact_information.html')
