@@ -1,0 +1,18 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "category_name": "Техника для компьютера",
+      "category_description": "вообще отличная"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "category_name": "услуги",
+      "category_description": "предоставляемые услуги"
+    }
+  }
+]
