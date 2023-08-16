@@ -1,13 +1,13 @@
 from django.db import models
 
-IMAGE_NULLABLE = {'blank': True,
-                  'null': True}
+NULLABLE = {'blank': True,
+            'null': True}
 
 
 class Product(models.Model):
     product_name = models.CharField(max_length=50, verbose_name='наименование')
     product_description = models.TextField(verbose_name='описание')
-    product_image = models.ImageField(upload_to='products/', verbose_name='изображение', **IMAGE_NULLABLE)
+    product_image = models.ImageField(upload_to='products/', verbose_name='изображение', **NULLABLE)
     product_category = models.CharField(max_length=30, verbose_name='категория')
     product_price = models.IntegerField(verbose_name='цена')
     create_date = models.DateField(verbose_name='дата создания')
