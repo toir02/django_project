@@ -11,7 +11,7 @@ class Product(models.Model):
     product_category = models.CharField(max_length=30, verbose_name='категория')
     product_price = models.IntegerField(verbose_name='цена')
     create_date = models.DateField(verbose_name='дата создания')
-    change_date = models.DateField(verbose_name='дата изменения')
+    change_date = models.DateField(verbose_name='дата изменения', **NULLABLE)
 
     def __str__(self):
         return (f'{self.product_name} {self.product_description} {self.product_image} {self.product_category} '
