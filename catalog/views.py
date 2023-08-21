@@ -15,3 +15,7 @@ def contacts(request):
               f'Сообщение: {message}')
 
     return render(request, 'catalog/contacts.html')
+
+
+def products(request):
+    return render(request, 'catalog/products.html')
