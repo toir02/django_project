@@ -14,8 +14,7 @@ class Product(models.Model):
     change_date = models.DateField(verbose_name='дата изменения', **NULLABLE)
 
     def __str__(self):
-        return (f'{self.product_name} {self.product_description} {self.product_image} {self.product_category} '
-                f'{self.product_price} {self.create_date} {self.change_date}')
+        return f'{self.product_name}'
 
     class Meta:
         verbose_name = 'Продукт'
@@ -28,7 +27,7 @@ class Category(models.Model):
     category_description = models.TextField(verbose_name='описание')
 
     def __str__(self):
-        return f'{self.category_name} {self.category_description}'
+        return f'{self.category_name}'
 
     class Meta:
         verbose_name = 'Категория'
