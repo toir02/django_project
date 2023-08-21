@@ -5,7 +5,7 @@ def homepage(request):
     return render(request, 'catalog/homepage.html')
 
 
-def contact_information(request):
+def contacts(request):
     if request.method == "POST":
         name = request.POST.get("name")
         phone = request.POST.get("phone")
@@ -14,4 +14,4 @@ def contact_information(request):
               f'Телефон: {phone}\n'
               f'Сообщение: {message}')
 
-    return render(request, 'catalog/contact_information.html')
+    return render(request, 'catalog/contacts.html')
