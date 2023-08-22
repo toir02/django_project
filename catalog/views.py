@@ -4,7 +4,10 @@ from catalog.models import Product
 
 
 def homepage(request):
-    return render(request, 'catalog/homepage.html')
+    context = {
+        'object_list': Product.objects.all().order_by('id')
+    }
+    return render(request, 'catalog/homepage.html', context)
 
 
 def contacts(request):
