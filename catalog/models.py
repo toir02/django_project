@@ -33,3 +33,13 @@ class Category(models.Model):
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
         ordering = ('category_name',)
+
+
+class Blog(models.Model):
+    title = models.CharField(max_length=100, verbose_name='заголовок')
+    slug = models.CharField(max_length=150, verbose_name='slug', **NULLABLE)
+    description = models.TextField(verbose_name='содержимое')
+    image = models.ImageField(upload_to='blog/', verbose_name='изображение', **NULLABLE)
+    create_date = models.DateField(verbose_name='дата создания')
+    sign_publication = models.CharField(max_length=100, verbose_name='признак публикации')
+    count_views = models.IntegerField(verbose_name='количество просмотров')
