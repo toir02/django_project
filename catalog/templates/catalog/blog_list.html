@@ -18,7 +18,7 @@
                 <div class="col p-4 d-flex flex-column position-static">
                     <h3 class="mb-0">{{ object.title }}</h3>
                     <div class="mb-1 text-muted">{{ object.create_date }}</div>
-                    <p class="card-text mb-auto">{{ object.description }}</p>
+                    <p class="card-text mb-auto">{{ object.description|slice:50 }}</p>
                     <a href="{% url 'catalog:view_blog' object.pk %}" class="stretched-link">View</a>
                     <a href="{% url 'catalog:edit_blog' object.pk %}" class="stretched-link">Edit</a>
                     <a href="{% url 'catalog:delete_blog' object.pk %}" class="stretched-link">Delete</a>
