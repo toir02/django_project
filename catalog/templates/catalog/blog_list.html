@@ -21,7 +21,7 @@
                     <p class="card-text mb-auto">{{ object.description }}</p>
                     <a href="{% url 'catalog:view_blog' object.pk %}" class="stretched-link">View</a>
                     <a href="{% url 'catalog:edit_blog' object.pk %}" class="stretched-link">Edit</a>
-                    <a href="#" class="stretched-link">Delete</a>
+                    <a href="{% url 'catalog:delete_blog' object.pk %}" class="stretched-link">Delete</a>
                 </div>
                 <div class="col-auto d-none d-lg-block">
                     <img src="/media/{{ object.image }}"/>
