@@ -21,7 +21,7 @@ class ProductDetailView(DetailView):
 class BlogCreateView(CreateView):
     model = Blog
     fields = ('title', 'description', 'create_date', 'image')
-    success_url = reverse_lazy('catalog:blog_list')
+    success_url = reverse_lazy('catalog:blog')
 
 
 class BlogListView(ListView):
@@ -35,9 +35,9 @@ class BlogDetailView(DetailView):
 class BlogUpdateView(UpdateView):
     model = Blog
     fields = ('title', 'description', 'image')
-    success_url = reverse_lazy('catalog:blog_list')
+    success_url = reverse_lazy('catalog:blog')
 
 
 class BlogDeleteView(DeleteView):
     model = Blog
-    success_url = reverse_lazy('catalog:blog_list')
+    success_url = reverse_lazy('catalog:blog')
