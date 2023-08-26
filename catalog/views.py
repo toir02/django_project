@@ -1,5 +1,6 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView, DetailView, CreateView, UpdateView, DeleteView
+from pytils.translit import slugify
 
 from catalog.models import Product, Blog
 
