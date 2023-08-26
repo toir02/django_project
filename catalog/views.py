@@ -26,7 +26,10 @@ class BlogCreateView(CreateView):
 
 class BlogListView(ListView):
     model = Blog
-    template_name = 'catalog/blog_list.html'
+
+
+class BlogDetailView(DetailView):
+    model = Blog
 
 
 class BlogUpdateView(UpdateView):
