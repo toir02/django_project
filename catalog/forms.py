@@ -19,3 +19,10 @@ class ProductForm(forms.ModelForm):
         if cleaned_data in self.validation_list:
             raise ValidationError('Такое название использовать запрещено.')
         return cleaned_data
+
+    def clean_product_description(self):
+        cleaned_data = self.cleaned_data['product_description']
+
+        if cleaned_data in self.validation_list:
+            raise ValidationError('Такое описание использовать запрещено.')
+        return cleaned_data
