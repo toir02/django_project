@@ -19,7 +19,12 @@
                 <ul class="list-unstyled mt-3 mb-4 text-start m-3">
                     {{ object.product_description|slice:100 }}
                 </ul>
-                <a class="btn btn-lg btn-block btn-outline-primary" href="{% url 'catalog:view_product' object.id %}">Купить</a>
+                <a class="btn btn-lg btn-block btn-outline-primary"
+                   href="{% url 'catalog:view_product' object.pk %}">Посмотреть</a>
+                <a class="btn btn-lg btn-block btn-outline-primary"
+                   href="{% url 'catalog:edit_product' object.pk %}">Изменить</a>
+                <a class="btn btn-lg btn-block btn-outline-primary"
+                   href="{% url 'catalog:delete_product' object.pk %}">Удалить</a>
             </div>
         </div>
     </div>
