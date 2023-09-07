@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 
-from catalog.models import Product
+from catalog.models import Product, Version
 
 
 class ProductForm(forms.ModelForm):
@@ -26,3 +26,10 @@ class ProductForm(forms.ModelForm):
         if cleaned_data in self.validation_list:
             raise ValidationError('Такое описание использовать запрещено.')
         return cleaned_data
+
+
+class VersionForm(forms.ModelForm):
+
+    class Meta:
+        model = Version
+        fields = '__all__'
