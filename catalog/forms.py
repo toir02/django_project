@@ -35,7 +35,7 @@ class ProductForm(MixinForm, forms.ModelForm):
         return cleaned_data
 
 
-class VersionForm(forms.ModelForm):
+class VersionForm(MixinForm, forms.ModelForm):
 
     class Meta:
         model = Version
