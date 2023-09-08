@@ -23,7 +23,7 @@ class ProductForm(MixinForm, forms.ModelForm):
     def clean_product_name(self):
         cleaned_data = self.cleaned_data['product_name']
 
-        if cleaned_data in self.validation_list:
+        if cleaned_data.lower() in self.validation_list:
             raise ValidationError('Такое название использовать запрещено.')
         return cleaned_data
 
