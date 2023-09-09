@@ -4,14 +4,14 @@ from django.core.exceptions import ValidationError
 from catalog.models import Product, Version
 
 
-class MixinForm:
+class StyleFormMixin:
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
 
 
-class ProductForm(MixinForm, forms.ModelForm):
+class ProductForm(StyleFormMixin, forms.ModelForm):
 
     validation_list = ['казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно', 'обман', 'полиция', 'радар']
 
@@ -35,7 +35,7 @@ class ProductForm(MixinForm, forms.ModelForm):
         return cleaned_data
 
 
-class VersionForm(MixinForm, forms.ModelForm):
+class VersionForm(StyleFormMixin, forms.ModelForm):
 
     class Meta:
         model = Version
