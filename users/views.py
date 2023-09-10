@@ -8,3 +8,4 @@ from users.models import User
 class RegisterView(CreateView):
     model = User
     form_class = RegisterForm
+    template_name = 'users/register.html'
