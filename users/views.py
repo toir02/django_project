@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from django.views.generic import CreateView
 
-# Create your views here.
+from users.forms import RegisterForm
+from users.models import User
+
+
+class RegisterView(CreateView):
+    model = User
+    form_class = RegisterForm
