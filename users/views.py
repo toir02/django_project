@@ -20,3 +20,15 @@ class RegisterView(CreateView):
         user_email = self.request.POST.get('email')
         send_verification_mail(user_email, key)
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('users:verification')
+
+
+def verification_user(request):
+    key = request.session.get('key')
+
+    if request.method == 'POST':
+        if key == request.POST.get('key'):
+            return redirect('users/verification_success.html')
+    return render(request, 'users/verification.html')
