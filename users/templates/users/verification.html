@@ -6,16 +6,15 @@
         <div class="card-header">
             Верификация
         </div>
-        <div class="card-body">
-            <form method="post" class="row">
-
+        <form method="post" class="row">
+            <div class="card-body">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="btn btn-primary">
                     Подтвердить
                 </button>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 </div>
 {% endblock %}
