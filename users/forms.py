@@ -13,3 +13,10 @@ class RegisterForm(UserCreationForm):
 
 class VerificationForm(forms.Form):
     key = forms.IntegerField(label='Введите ключ для верификации')
+
+
+class ResetPasswordForm(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = ('email',)
