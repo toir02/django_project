@@ -1,23 +1,26 @@
 {% extends 'catalog/base.html' %}
 
 {% block content %}
-<form method="post" class="row">
-    {% if not object %}
-    <div class="col-6">
-        <div class="card">
+{% if not object %}
+<div class="col-6">
+    <div class="card">
+        <form method="post" class="multipart/form-data">
             <div class="card-header">
                 Создание продукта
             </div>
             <div class="card-body">
+
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="btn btn-primary">
                     Создать
                 </button>
+
             </div>
-        </div>
+        </form>
     </div>
-</form>
+
+</div>
 {% endif %}
 
 <form method="post" class="row">
