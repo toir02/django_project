@@ -1,9 +1,9 @@
 import random
 
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
-from django.views import View
 from django.views.generic import CreateView
+from django.contrib.auth.views import LoginView as BaseLoginView
 
 from users.forms import RegisterForm, VerificationForm
 from users.models import User
@@ -16,6 +16,8 @@ class RegisterView(CreateView):
     template_name = 'users/register.html'
 
     def form_valid(self, form):
+        user = form.save()
+        user.save()
         key = random.randint(1000, 9999)
         self.request.session['key'] = key
         user_email = self.request.POST.get('email')
@@ -43,3 +45,9 @@ def verification_user(request):
 
 def success_verification(request):
     return render(request, 'users/verification_success.html')
+
+
+class LoginView(BaseLoginView):
+    template_name = 'users/login.html'
+
+
