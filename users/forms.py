@@ -12,7 +12,7 @@ class StyleFormMixin:
                 field.widget.attrs['class'] = 'form-control'
 
 
-class RegisterForm(UserCreationForm):
+class RegisterForm(StyleFormMixin, UserCreationForm):
 
     class Meta:
         model = User
@@ -23,7 +23,7 @@ class VerificationForm(forms.Form):
     key = forms.IntegerField(label='Введите ключ для верификации')
 
 
-class ResetPasswordForm(forms.ModelForm):
+class ResetPasswordForm(StyleFormMixin, forms.ModelForm):
 
     class Meta:
         model = User
