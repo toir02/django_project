@@ -1,6 +1,7 @@
 import random
 
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
@@ -30,6 +31,7 @@ class RegisterView(CreateView):
         return reverse_lazy('users:verification')
 
 
+@login_required
 def verification_user(request):
     key = request.session.get('key')
     user = request.user
@@ -56,6 +58,7 @@ class LoginView(BaseLoginView):
         return reverse_lazy('catalog:product')
 
 
+@login_required
 def set_new_password(request):
     form = ResetPasswordForm()
     if request.method == 'POST':
