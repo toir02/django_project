@@ -20,18 +20,20 @@ class RegisterView(CreateView):
     def form_valid(self, form):
         user = form.save()
         user.save()
+
         key = random.randint(1000, 9999)
         self.request.session['key'] = key
         user_email = self.request.POST.get('email')
         send_verification_mail(user_email, key)
-        login(self.request, user)
+
+        form.save()
+
         return super().form_valid(form)
 
     def get_success_url(self):
         return reverse_lazy('users:verification')
 
 
-@login_required
 def verification_user(request):
     key = request.session.get('key')
     user = request.user
