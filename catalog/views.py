@@ -14,6 +14,14 @@ class ProductListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        active_versions = Version.objects.filter(is_active=True)
+        for product in context['object_list']:
+            version = active_versions.filter(product=product)
+            if version:
+                product.version = {
+                    'name': version[0].version_name,
+                    'number': version[0].version_number,
+                }
         context['categories'] = get_category_set()
         return context
 
